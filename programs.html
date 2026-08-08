@@ -4,124 +4,243 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Programs &amp; Events – NYEEI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Explore NYEEI's 6 core programs and 2026 event calendar for Nairobi youth."/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
   <script src="js/main.js" defer></script>
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-  <div class="nav-logo" onclick="window.location.href='index.html'" style="cursor:pointer;">NYE<span>EI</span></div>
-  <ul class="nav-links">
+  <a href="index.html" class="nav-logo">
+    NYE<span>EI</span>
+    <span class="logo-badge">Nairobi</span>
+  </a>
+  <ul class="nav-links" id="nav-menu" role="navigation" aria-label="Main Navigation">
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About &amp; Team</a></li>
     <li><a href="programs.html" class="active">Programs &amp; Events</a></li>
     <li><a href="register.html">Register</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="donate.html" class="nav-cta">Donate now</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate now →</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </nav>
 
-<!-- PROGRAMS -->
-<section class="section programs" id="programs">
+<!-- FEATURED PROGRAM BANNER -->
+<section class="section" style="padding-bottom: 3rem;">
   <div class="section-inner">
-    <div class="section-label">Our programs</div>
-    <h2>How we work</h2>
-    <p class="section-sub">Six interconnected pathways — each designed to meet youth where they are and take them where they want to go.</p>
-    <div class="programs-list">
-      <div class="program-card">
-        <div class="program-tag">Flagship</div>
-        <h3>Innovate Nairobi Bootcamp</h3>
-        <p>An intensive 8-week programme in digital skills, business planning, and startup fundamentals — culminating in a live pitch to investors.</p>
+    <div class="section-header">
+      <div class="section-label">Six Pathways</div>
+      <h2>Transformative Programs Designed for Nairobi Youth</h2>
+      <p class="section-sub">From digital coding bootcamps to zero-collateral seed grants, our initiatives meet young people where they are.</p>
+    </div>
+
+    <!-- Featured Bootcamp Card -->
+    <div style="background: var(--primary); color: #FFF; border-radius: var(--radius-xl); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; box-shadow: var(--shadow-lg); margin-bottom: 4rem;">
+      <div style="padding: 3.5rem; display: flex; flex-direction: column; justify-content: center;">
+        <span class="card-badge badge-gold" style="align-self:flex-start; margin-bottom:1rem;">Flagship Bootcamp</span>
+        <h3 style="color:#FFF; font-size: 2.2rem; font-weight:800; margin-bottom: 1rem;">Innovate Nairobi Bootcamp</h3>
+        <p style="color: rgba(255,255,255,0.85); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
+          An intensive 8-week immersive training program in digital skills, full-stack web development, product management, and business modeling—culminating in a live Pitch &amp; Demo Day before investors.
+        </p>
+        <div style="display:flex; gap:1rem; align-items:center;">
+          <a href="register.html" class="btn-primary">Apply for Next Cohort →</a>
+          <span style="font-size:0.88rem; color:var(--accent-gold); font-weight:600;">8 Weeks · Zero Tuition</span>
+        </div>
       </div>
-      <div class="program-card">
-        <div class="program-tag">Ongoing</div>
-        <h3>Hustle Hub Mentorship</h3>
-        <p>A year-round mentorship circle pairing emerging entrepreneurs with seasoned business leaders for hands-on guidance and accountability.</p>
+      <div>
+        <img src="images/program_bootcamp.png" alt="Nairobi Youth Digital Bootcamp Class" style="width:100%; height:100%; object-fit:cover;" />
       </div>
-      <div class="program-card">
-        <div class="program-tag">Grants</div>
-        <h3>Micro-Enterprise Fund</h3>
-        <p>Seed grants of KES 10,000–50,000 for youth-led ventures that pass our business viability review — no collateral required.</p>
+    </div>
+
+    <!-- PROGRAM GRID -->
+    <div class="programs-grid-modern">
+      <!-- Program 2 -->
+      <div class="program-card-modern">
+        <div>
+          <div class="program-meta-header">
+            <span class="program-tag-pill">Year-Round</span>
+            <span style="font-size:1.4rem;">🤝</span>
+          </div>
+          <h3>Hustle Hub Mentorship</h3>
+          <p>A structured mentorship circle pairing emerging Nairobi entrepreneurs with corporate leaders and successful startup founders for weekly strategic guidance.</p>
+        </div>
+        <a href="register.html" class="program-action-link">Join Mentorship Circle →</a>
       </div>
-      <div class="program-card">
-        <div class="program-tag">Schools</div>
-        <h3>Youth in Business</h3>
-        <p>A schools-based financial literacy and entrepreneurship curriculum reaching secondary students in Nairobi's underserved estates.</p>
+
+      <!-- Program 3 -->
+      <div class="program-card-modern">
+        <div>
+          <div class="program-meta-header">
+            <span class="program-tag-pill" style="background:var(--accent-light); color:var(--accent-hover);">Direct Capital</span>
+            <span style="font-size:1.4rem;">🌱</span>
+          </div>
+          <h3>Micro-Enterprise Fund</h3>
+          <p>Seed capital grants ranging from KES 10,000 to KES 50,000 awarded to viable youth-led projects upon business plan review with zero collateral required.</p>
+        </div>
+        <a href="register.html" class="program-action-link">Apply for Micro-Grant →</a>
       </div>
-      <div class="program-card">
-        <div class="program-tag">Women-led</div>
-        <h3>Mama Inua</h3>
-        <p>Targeted support for young women entrepreneurs — combining training, peer networks, and access to women-focused financing.</p>
+
+      <!-- Program 4 -->
+      <div class="program-card-modern">
+        <div>
+          <div class="program-meta-header">
+            <span class="program-tag-pill">Outreach</span>
+            <span style="font-size:1.4rem;">📚</span>
+          </div>
+          <h3>Youth in Business Outreach</h3>
+          <p>High school and community-based financial literacy and entrepreneurship workshops reaching secondary school students across Nairobi's estates.</p>
+        </div>
+        <a href="contact.html" class="program-action-link">Partner for School Outreach →</a>
       </div>
-      <div class="program-card">
-        <div class="program-tag">Tech</div>
-        <h3>Code &amp; Create</h3>
-        <p>Practical digital skills — coding, design, and freelancing — enabling youth to access the global digital economy from Nairobi.</p>
+
+      <!-- Program 5 -->
+      <div class="program-card-modern">
+        <div>
+          <div class="program-meta-header">
+            <span class="program-tag-pill" style="background:#FDECEF; color:#A01A4A;">Women-Led</span>
+            <span style="font-size:1.4rem;">👑</span>
+          </div>
+          <h3>Mama Inua Initiative</h3>
+          <p>Dedicated enterprise support, financial access, and peer networks specifically designed for young female founders in Nairobi's informal settlements.</p>
+        </div>
+        <a href="register.html" class="program-action-link">Join Mama Inua →</a>
+      </div>
+
+      <!-- Program 6 -->
+      <div class="program-card-modern">
+        <div>
+          <div class="program-meta-header">
+            <span class="program-tag-pill">Tech Economy</span>
+            <span style="font-size:1.4rem;">⚡</span>
+          </div>
+          <h3>Code &amp; Create Remote Tech</h3>
+          <p>Hands-on training in software engineering, UI/UX design, and global digital freelancing—enabling youth to earn remote income from Nairobi.</p>
+        </div>
+        <a href="register.html" class="program-action-link">Enroll in Code &amp; Create →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EVENTS CALENDAR -->
-<section class="section events" id="events">
+<!-- CALENDAR OF EVENTS -->
+<section class="section" style="background: var(--dark); color: #FFF;">
   <div class="section-inner">
-    <div class="section-label">Calendar of events</div>
-    <h2>What's coming up</h2>
-    <p class="section-sub">Our 2025 programme calendar runs August through December. Exact dates will be communicated — follow us or contact us to stay updated.</p>
-    <div class="calendar-grid">
-
-      <div class="month-card">
-        <div class="month-name">📅 August</div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Innovate Nairobi Bootcamp — Cohort Launch</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Hustle Hub Mentorship — Kick-off Session</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Youth in Business — Schools Outreach</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-      </div>
-
-      <div class="month-card">
-        <div class="month-name">📅 September</div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Mama Inua Women Entrepreneurs Forum</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Code &amp; Create — Digital Skills Workshop</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Micro-Enterprise Fund — Applications Open</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-      </div>
-
-      <div class="month-card">
-        <div class="month-name">📅 October</div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Innovate Nairobi Bootcamp — Mid-point Review</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Community Stakeholders Engagement Forum</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Partnerships &amp; Fundraising Roundtable</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-      </div>
-
-      <div class="month-card">
-        <div class="month-name">📅 November</div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Youth Innovation Pitch Competition</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Micro-Enterprise Fund — Grant Awards</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Gender Inclusion &amp; Community Dialogue</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-      </div>
-
-      <div class="month-card">
-        <div class="month-name">📅 December</div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">NYEEI Annual Youth Empowerment Gala</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Bootcamp Graduation &amp; Demo Day</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-        <div class="event-item"><div class="event-dot"></div><div><div class="event-text">Year-End Community Impact Review</div><div class="event-date">Date TBC <span class="tbc-badge">TBC</span></div></div></div>
-      </div>
-
+    <div class="section-header">
+      <div class="section-label" style="background:rgba(217,130,43,0.2); color:var(--accent-gold);">2026 Timeline</div>
+      <h2 style="color:#FFF;">Upcoming Community &amp; Program Events</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.7);">Our active program schedule runs through December 2026 across Nairobi constituencies.</p>
     </div>
-    <p style="margin-top:1.75rem;color:rgba(255,255,255,0.5);font-size:0.85rem;text-align:center;">
-      📩 To be notified of confirmed dates, email <a href="mailto:nyeeiorganization@gmail.com" style="color:var(--gold);">nyeeiorganization@gmail.com</a> or WhatsApp <a href="https://wa.me/254793633079" style="color:var(--gold);">0793 633 079</a>
-    </p>
+
+    <div class="timeline-calendar">
+      <!-- August -->
+      <div class="month-box">
+        <h4>📅 August 2026</h4>
+        <div class="event-entry">
+          <div class="event-title">Innovate Nairobi Bootcamp — Cohort Launch</div>
+          <div class="event-status">📍 iHub Nairobi · Date Confirmed</div>
+        </div>
+        <div class="event-entry">
+          <div class="event-title">Hustle Hub Mentorship Kick-off</div>
+          <div class="event-status">📍 Westlands Hub · Registration Open</div>
+        </div>
+      </div>
+
+      <!-- September -->
+      <div class="month-box">
+        <h4>📅 September 2026</h4>
+        <div class="event-entry">
+          <div class="event-title">Mama Inua Women Entrepreneurs Forum</div>
+          <div class="event-status">📍 Mathare Community Center</div>
+        </div>
+        <div class="event-entry">
+          <div class="event-title">Micro-Enterprise Grant Round 2 Opens</div>
+          <div class="event-status">📍 Online Applications</div>
+        </div>
+      </div>
+
+      <!-- October -->
+      <div class="month-box">
+        <h4>📅 October 2026</h4>
+        <div class="event-entry">
+          <div class="event-title">Bootcamp Mid-Point Review &amp; Mentors Night</div>
+          <div class="event-status">📍 Nairobi Innovation Center</div>
+        </div>
+        <div class="event-entry">
+          <div class="event-title">Constituency Stakeholders Roundtable</div>
+          <div class="event-status">📍 Embakasi East Hall</div>
+        </div>
+      </div>
+
+      <!-- November -->
+      <div class="month-box">
+        <h4>📅 November 2026</h4>
+        <div class="event-entry">
+          <div class="event-title">Youth Innovation Pitch Competition</div>
+          <div class="event-status">📍 TUK Auditorium</div>
+        </div>
+        <div class="event-entry">
+          <div class="event-title">Micro-Enterprise Grant Award Ceremony</div>
+          <div class="event-status">📍 Nairobi City Hall</div>
+        </div>
+      </div>
+
+      <!-- December -->
+      <div class="month-box">
+        <h4>📅 December 2026</h4>
+        <div class="event-entry">
+          <div class="event-title">NYEEI Annual Empowerment Gala &amp; Graduation</div>
+          <div class="event-status">📍 Nairobi Main Hub · Grand Demo Day</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem;">
+      <p style="color:rgba(255,255,255,0.7); font-size:0.95rem;">
+        📩 Want to receive event invitations or RSVP? Email <a href="mailto:nyeeiorganization@gmail.com" style="color:var(--accent-gold);">nyeeiorganization@gmail.com</a> or WhatsApp <a href="https://wa.me/254793633079" style="color:var(--accent-gold);">+254 793 633 079</a>
+      </p>
+    </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="logo">NYE<span>EI</span></div>
-  <p>Nairobi Youth Economic Engagement Initiative</p>
-  <p style="margin-top:0.4rem;">Founded by Economist John Ochieng Ohuru &nbsp;·&nbsp; <a href="mailto:nyeeiorganization@gmail.com">nyeeiorganization@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+254793633079">0793 633 079</a> &nbsp;·&nbsp; Nairobi, Kenya</p>
-  <p style="margin-top:1rem;font-size:0.78rem;">© 2026 NYEEI. Building brighter futures, one youth at a time.</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">NYE<span>EI</span></div>
+      <p>Nairobi Youth Economic Engagement Initiative is a community-driven initiative dedicated to economic empowerment, skills training, and seed capital access for youth across Nairobi's 17 constituencies.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="programs.html">Programs &amp; Events</a></li>
+        <li><a href="register.html">Register as Member</a></li>
+        <li><a href="donate.html">Donate &amp; Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact &amp; Transparency</h4>
+      <p style="margin-bottom:0.5rem;">Founder &amp; CEO: Economist John Ochieng Ohuru</p>
+      <p style="margin-bottom:0.5rem;">Email: <a href="mailto:nyeeiorganization@gmail.com">nyeeiorganization@gmail.com</a></p>
+      <p style="margin-bottom:0.5rem;">Tel / WhatsApp: <a href="https://wa.me/254793633079">+254 793 633 079</a></p>
+      <p>Location: Nairobi, Kenya</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 NYEEI. All rights reserved. Registered youth engagement initiative in Kenya.</div>
+    <div>Crafted for Nairobi's Youth with Care &amp; Integrity.</div>
+  </div>
 </footer>
 
 </body>

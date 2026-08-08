@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Register as a Member – NYEEI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Join the Nairobi Youth Economic Engagement Initiative and access bootcamps, mentorship, and seed grants."/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
-  <!-- Formspree Ajax SDK -->
   <script>
     window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
   </script>
@@ -15,93 +15,87 @@
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-  <div class="nav-logo" onclick="window.location.href='index.html'" style="cursor:pointer;">NYE<span>EI</span></div>
-  <ul class="nav-links">
+  <a href="index.html" class="nav-logo">
+    NYE<span>EI</span>
+    <span class="logo-badge">Nairobi</span>
+  </a>
+  <ul class="nav-links" id="nav-menu" role="navigation" aria-label="Main Navigation">
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About &amp; Team</a></li>
     <li><a href="programs.html">Programs &amp; Events</a></li>
     <li><a href="register.html" class="active">Register</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="donate.html" class="nav-cta">Donate now</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate now →</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
     <span></span>
     <span></span>
     <span></span>
   </button>
 </nav>
 
-<!-- REGISTRATION -->
-<section class="section" id="register" style="background:var(--bg);">
+<!-- REGISTRATION SECTION -->
+<section class="section">
   <div class="section-inner">
-    <div class="section-label">Join NYEEI</div>
-    <h2>Register as a member</h2>
-    <p class="section-sub">Take the first step towards transforming your future. Fill in the form below and our team will reach out to you within 48 hours.</p>
+    <div class="section-header">
+      <div class="section-label">Join NYEEI</div>
+      <h2>Become a Member of Nairobi’s Youth Movement</h2>
+      <p class="section-sub">Take the first step towards economic empowerment, skills training, and seed capital access.</p>
+    </div>
 
-    <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2.5rem;max-width:640px;margin: 0 auto;">
+    <div class="form-container-card">
+      <div style="background:var(--primary-soft); border-left:4px solid var(--primary); border-radius:0 var(--radius-md) var(--radius-md) 0; padding:1.1rem 1.4rem; margin-bottom: 2rem;">
+        <div style="font-weight:800; font-size:0.95rem; color:var(--primary); margin-bottom:0.2rem;">⚡ 48-Hour Orientation Promise</div>
+        <div style="font-size:0.88rem; color:var(--text-muted);">Our community team will review your registration within 48 hours and connect you with local constituency bootcamps and mentors.</div>
+      </div>
 
-      <!-- Success message (fallback / manual flow) -->
-      <div id="reg-success" style="display:none;text-align:center;padding:2rem 1rem;">
-        <div style="width:64px;height:64px;border-radius:50%;background:var(--green-light);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a7a3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <!-- Formspree Success Message -->
+      <div data-fs-success id="reg-success-fs" style="display:none; text-align:center; padding:2rem 1rem;">
+        <div style="width:64px; height:64px; border-radius:50%; background:var(--primary-soft); border:2px solid var(--primary); display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; font-size:1.8rem;">
+          🎉
         </div>
-        <h3 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:0.5rem;">Application received!</h3>
-        <p style="color:var(--muted);font-size:0.95rem;margin-bottom:1.5rem;">Thank you for registering with NYEEI. Our team will contact you within 48 hours. Welcome to the movement!</p>
-        <a href="https://wa.me/254793633079?text=Hello%20NYEEI%2C%20I%20just%20registered%20as%20a%20member%20and%20would%20like%20to%20know%20more." target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25d366;color:white;border-radius:8px;padding:0.75rem 1.5rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.849L.078 23.617a.75.75 0 00.918.899l5.919-1.55A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.715 9.715 0 01-4.944-1.348l-.354-.21-3.668.961.975-3.565-.23-.367A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-          Chat with us on WhatsApp
+        <h3 style="font-size:1.4rem; font-weight:800; margin-bottom:0.5rem;">Application Received!</h3>
+        <p style="color:var(--text-muted); font-size:0.98rem; margin-bottom:1.75rem;">Welcome to NYEEI! Our Nairobi onboarding team will reach out via WhatsApp/email within 48 hours.</p>
+        <a id="reg-whatsapp-btn" href="https://wa.me/254793633079" target="_blank" class="btn-primary" style="background:#25d366; box-shadow:none;">
+          <span>💬 Confirm via WhatsApp</span>
         </a>
       </div>
 
-      <!-- Formspree success message -->
-      <div data-fs-success id="reg-success-fs" style="display:none;text-align:center;padding:2rem 1rem;">
-        <div style="width:64px;height:64px;border-radius:50%;background:var(--green-light);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a7a3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h3 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:0.5rem;">Application received!</h3>
-        <p style="color:var(--muted);font-size:0.95rem;margin-bottom:1.5rem;">Thank you for registering with NYEEI. Our team will contact you within 48 hours. Welcome to the movement!</p>
-        <a id="reg-whatsapp-btn" href="https://wa.me/254793633079" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25d366;color:white;border-radius:8px;padding:0.75rem 1.5rem;font-weight:700;font-size:0.95rem;text-decoration:none;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.849L.078 23.617a.75.75 0 00.918.899l5.919-1.55A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.715 9.715 0 01-4.944-1.348l-.354-.21-3.668.961.975-3.565-.23-.367A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-          Confirm via WhatsApp
-        </a>
-      </div>
+      <!-- Formspree Error Message -->
+      <div data-fs-error style="display:none; background:#FDECEA; border:1px solid #F5C6C2; border-radius:var(--radius-md); padding:0.85rem 1rem; font-size:0.9rem; color:#C0392B; margin-bottom:1.5rem;"></div>
 
-      <!-- Formspree error message -->
-      <div data-fs-error style="display:none;background:#fef0ee;border:1px solid #f5c6c2;border-radius:8px;padding:0.75rem 1rem;font-size:0.88rem;color:#c0392b;margin-bottom:1rem;"></div>
-
-      <!-- Registration form wired to Formspree Ajax -->
+      <!-- REGISTRATION FORM -->
       <form id="reg-form" action="https://formspree.io/f/mykqvvdv" method="POST">
         <input type="hidden" name="_subject" value="🌍 New NYEEI Member Registration" />
         <input type="hidden" name="_replyto" value="nyeeiorganization@gmail.com" />
         <input type="hidden" name="Form Type" value="Member Registration" />
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
-          <div>
-            <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Full Name <span style="color:#c0392b;">*</span></label>
-            <input id="reg-name" name="Full Name" type="text" placeholder="Your full name" required data-fs-field
-              style="width:100%;border:1.5px solid var(--border);border-radius:8px;padding:0.7rem 1rem;font-size:0.95rem;font-family:inherit;outline:none;transition:border-color 0.2s;" />
-            <span data-fs-error="Full Name" style="font-size:0.8rem;color:#c0392b;"></span>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+          <div class="form-field-group">
+            <label for="reg-name">Full Name <span style="color:#C0392B;">*</span></label>
+            <input id="reg-name" name="Full Name" type="text" class="form-input" placeholder="e.g., Jane Wanjiku" required data-fs-field />
+            <span data-fs-error="Full Name" style="font-size:0.8rem; color:#C0392B;"></span>
           </div>
-          <div>
-            <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Phone Number <span style="color:#c0392b;">*</span></label>
-            <input id="reg-phone" name="Phone" type="tel" placeholder="07XX XXX XXX" required data-fs-field
-              style="width:100%;border:1.5px solid var(--border);border-radius:8px;padding:0.7rem 1rem;font-size:0.95rem;font-family:inherit;outline:none;transition:border-color 0.2s;" />
-            <span data-fs-error="Phone" style="font-size:0.8rem;color:#c0392b;"></span>
+
+          <div class="form-field-group">
+            <label for="reg-phone">Phone Number (WhatsApp) <span style="color:#C0392B;">*</span></label>
+            <input id="reg-phone" name="Phone" type="tel" class="form-input" placeholder="07XX XXX XXX" required data-fs-field />
+            <span data-fs-error="Phone" style="font-size:0.8rem; color:#C0392B;"></span>
           </div>
         </div>
 
-        <div style="margin-bottom:1rem;">
-          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Email Address <span style="color:#c0392b;">*</span></label>
-          <input id="reg-email" name="email" type="email" placeholder="you@example.com" required data-fs-field
-            style="width:100%;border:1.5px solid var(--border);border-radius:8px;padding:0.7rem 1rem;font-size:0.95rem;font-family:inherit;outline:none;transition:border-color 0.2s;" />
-          <span data-fs-error="email" style="font-size:0.8rem;color:#c0392b;"></span>
+        <div class="form-field-group">
+          <label for="reg-email">Email Address <span style="color:#C0392B;">*</span></label>
+          <input id="reg-email" name="email" type="email" class="form-input" placeholder="you@example.com" required data-fs-field />
+          <span data-fs-error="email" style="font-size:0.8rem; color:#C0392B;"></span>
         </div>
 
-        <div style="margin-bottom:1rem;">
-          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Constituency <span style="color:#c0392b;">*</span></label>
-          <select id="reg-constituency" name="Constituency" required data-fs-field
-            style="width:100%;border:1.5px solid var(--border);border-radius:8px;padding:0.7rem 1rem;font-size:0.95rem;font-family:inherit;outline:none;background:white;color:var(--text);transition:border-color 0.2s;cursor:pointer;">
-            <option value="">— Select your constituency —</option>
+        <div class="form-field-group">
+          <label for="reg-constituency">Nairobi Constituency <span style="color:#C0392B;">*</span></label>
+          <select id="reg-constituency" name="Constituency" class="form-select" required data-fs-field>
+            <option value="">— Select your Nairobi constituency —</option>
             <option>Westlands</option>
             <option>Dagoretti North</option>
             <option>Dagoretti South</option>
@@ -120,33 +114,59 @@
             <option>Starehe</option>
             <option>Mathare</option>
           </select>
-          <span data-fs-error="Constituency" style="font-size:0.8rem;color:#c0392b;"></span>
+          <span data-fs-error="Constituency" style="font-size:0.8rem; color:#C0392B;"></span>
         </div>
 
-        <div style="margin-bottom:1.5rem;">
-          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Why do you want to join NYEEI? <span style="color:#c0392b;">*</span></label>
-          <textarea id="reg-reason" name="Reason for Joining" rows="4" required data-fs-field
-            placeholder="Tell us about yourself, your goals, and why you want to be part of the NYEEI community..."
-            style="width:100%;border:1.5px solid var(--border);border-radius:8px;padding:0.7rem 1rem;font-size:0.95rem;font-family:inherit;outline:none;resize:vertical;transition:border-color 0.2s;"></textarea>
-          <span data-fs-error="Reason for Joining" style="font-size:0.8rem;color:#c0392b;"></span>
+        <div class="form-field-group">
+          <label for="reg-reason">Why do you want to join NYEEI? <span style="color:#C0392B;">*</span></label>
+          <textarea id="reg-reason" name="Reason for Joining" rows="4" class="form-textarea" required data-fs-field placeholder="Tell us about your background, business/coding goals, and how NYEEI can support you..."></textarea>
+          <span data-fs-error="Reason for Joining" style="font-size:0.8rem; color:#C0392B;"></span>
         </div>
 
-        <button type="submit" data-fs-submit-btn
-          style="width:100%;background:var(--green);color:white;border:none;border-radius:8px;padding:1rem;font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.2s;"
-          onmouseover="this.style.background='var(--green-dark)'" onmouseout="this.style.background='var(--green)'">
-          Submit Application →
+        <button type="submit" data-fs-submit-btn class="form-submit-btn">
+          Submit Member Application →
         </button>
-        <p style="font-size:0.8rem;color:var(--muted);margin-top:0.75rem;text-align:center;">By registering you agree to be contacted by NYEEI. Your data is kept confidential.</p>
+
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-top:1rem; text-align:center;">
+          🔒 Your information is confidential and used solely for NYEEI program onboarding.
+        </p>
       </form>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="logo">NYE<span>EI</span></div>
-  <p>Nairobi Youth Economic Engagement Initiative</p>
-  <p style="margin-top:0.4rem;">Founded by Economist John Ochieng Ohuru &nbsp;·&nbsp; <a href="mailto:nyeeiorganization@gmail.com">nyeeiorganization@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+254793633079">0793 633 079</a> &nbsp;·&nbsp; Nairobi, Kenya</p>
-  <p style="margin-top:1rem;font-size:0.78rem;">© 2026 NYEEI. Building brighter futures, one youth at a time.</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">NYE<span>EI</span></div>
+      <p>Nairobi Youth Economic Engagement Initiative is a community-driven initiative dedicated to economic empowerment, skills training, and seed capital access for youth across Nairobi's 17 constituencies.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="programs.html">Programs &amp; Events</a></li>
+        <li><a href="register.html">Register as Member</a></li>
+        <li><a href="donate.html">Donate &amp; Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact &amp; Transparency</h4>
+      <p style="margin-bottom:0.5rem;">Founder &amp; CEO: Economist John Ochieng Ohuru</p>
+      <p style="margin-bottom:0.5rem;">Email: <a href="mailto:nyeeiorganization@gmail.com">nyeeiorganization@gmail.com</a></p>
+      <p style="margin-bottom:0.5rem;">Tel / WhatsApp: <a href="https://wa.me/254793633079">+254 793 633 079</a></p>
+      <p>Location: Nairobi, Kenya</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 NYEEI. All rights reserved. Registered youth engagement initiative in Kenya.</div>
+    <div>Crafted for Nairobi's Youth with Care &amp; Integrity.</div>
+  </div>
 </footer>
 
 </body>

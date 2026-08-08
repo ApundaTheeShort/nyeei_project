@@ -99,7 +99,7 @@ function handleDonate() {
   if (confirmAmt) confirmAmt.textContent = amt.toLocaleString();
   if (confirmRef) confirmRef.textContent = name || 'Anonymous';
   
-  var waText = encodeURIComponent('Hello NYEEI, I have just made a donation of KES ' + amt.toLocaleString() + '. My name is ' + (name || 'Donor') + '.');
+  var waText = encodeURIComponent('Hello NYEEI, I have just initiated a donation of KES ' + amt.toLocaleString() + '. My payment reference name is ' + (name || 'Donor') + '.');
   if (waLink) waLink.href = 'https://wa.me/254793633079?text=' + waText;
   
   if (step1) step1.style.display = 'none';
@@ -111,9 +111,9 @@ function handleDonate() {
 function copyText(text, btn) {
   navigator.clipboard.writeText(text).then(function() {
     var orig = btn.textContent;
-    btn.textContent = 'Copied!';
-    btn.style.background = 'var(--green)';
-    btn.style.color = 'white';
+    btn.textContent = '✓ Copied!';
+    btn.style.background = 'var(--primary)';
+    btn.style.color = '#FFFFFF';
     setTimeout(function() {
       btn.textContent = orig;
       btn.style.background = '';
@@ -130,14 +130,13 @@ function initNav() {
 
   if (!toggle || !navLinks) return;
 
-  // Set initial ARIA accessibility attributes
   if (!navLinks.id) navLinks.id = 'nav-menu';
   if (!navLinks.getAttribute('role')) navLinks.setAttribute('role', 'navigation');
   if (!navLinks.getAttribute('aria-label')) navLinks.setAttribute('aria-label', 'Main Navigation');
   toggle.setAttribute('aria-controls', navLinks.id);
 
   function syncAriaState() {
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= 900;
     const isOpen = navLinks.classList.contains('active');
     if (isMobile) {
       navLinks.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
@@ -153,7 +152,6 @@ function initNav() {
     toggle.setAttribute('aria-expanded', 'true');
     navLinks.setAttribute('aria-hidden', 'false');
 
-    // Move focus into the menu (first link)
     const firstLink = navLinks.querySelector('a');
     if (firstLink) firstLink.focus();
   }
@@ -179,30 +177,25 @@ function initNav() {
     toggleMenu();
   });
 
-  // Close menu when clicking a link
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
-  // Close menu when clicking outside or directly on overlay backdrop
   document.addEventListener('click', (e) => {
     if (navLinks.classList.contains('active')) {
-      // If click target is the navLinks overlay itself (backdrop) or outside toggle & links
       if (e.target === navLinks || (!navLinks.contains(e.target) && !toggle.contains(e.target))) {
         closeMenu();
       }
     }
   });
 
-  // Handle window resize
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+    if (window.innerWidth > 900 && navLinks.classList.contains('active')) {
       closeMenu();
     }
     syncAriaState();
   });
 
-  // Support Keyboard Navigation: ESC to close & Focus Trapping inside open drawer
   document.addEventListener('keydown', (e) => {
     if (!navLinks.classList.contains('active')) return;
 
@@ -245,17 +238,18 @@ function initNav() {
 // ── FORM INITIALIZATION (Formspree AJAX Integration) ──
 document.addEventListener('DOMContentLoaded', function() {
   initNav();
-  // Init Registration Form
+
+  // Registration Form Handler
   var regForm = document.getElementById('reg-form');
   if (typeof formspree === 'function' && regForm) {
     formspree('initForm', { formElement: '#reg-form', formId: FORMSPREE_ID });
     
     regForm.addEventListener('formspree:success', function() {
-      var name = document.getElementById('reg-name').value.trim();
-      var phone = document.getElementById('reg-phone').value.trim();
-      var email = document.getElementById('reg-email').value.trim();
-      var constituency = document.getElementById('reg-constituency').value;
-      var reason = document.getElementById('reg-reason').value.trim();
+      var name = (document.getElementById('reg-name') ? document.getElementById('reg-name').value.trim() : '');
+      var phone = (document.getElementById('reg-phone') ? document.getElementById('reg-phone').value.trim() : '');
+      var email = (document.getElementById('reg-email') ? document.getElementById('reg-email').value.trim() : '');
+      var constituency = (document.getElementById('reg-constituency') ? document.getElementById('reg-constituency').value : '');
+      var reason = (document.getElementById('reg-reason') ? document.getElementById('reg-reason').value.trim() : '');
       
       saveRegistration({ name: name, phone: phone, email: email, constituency: constituency, reason: reason });
       
@@ -269,15 +263,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Init Contact Form
+  // Contact Form Handler
   var contactForm = document.getElementById('contact-form');
   if (typeof formspree === 'function' && contactForm) {
     formspree('initForm', { formElement: '#contact-form', formId: FORMSPREE_ID });
     
     contactForm.addEventListener('formspree:success', function() {
-      var name = document.getElementById('contact-name').value.trim();
-      var email = document.getElementById('contact-email').value.trim();
-      var message = document.getElementById('contact-message').value.trim();
+      var name = (document.getElementById('contact-name') ? document.getElementById('contact-name').value.trim() : '');
+      var email = (document.getElementById('contact-email') ? document.getElementById('contact-email').value.trim() : '');
+      var message = (document.getElementById('contact-message') ? document.getElementById('contact-message').value.trim() : '');
       
       saveContactMessage({ name: name, email: email, message: message, phone: '' });
     });
