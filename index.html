@@ -12,13 +12,18 @@
 
 <nav>
   <div class="nav-logo" onclick="window.location.href='index.html'" style="cursor:pointer;">NYE<span>EI</span></div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-menu" role="navigation" aria-label="Main Navigation">
     <li><a href="about.html">About &amp; Team</a></li>
     <li><a href="programs.html">Programs &amp; Events</a></li>
     <li><a href="register.html">Register</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate now</a></li>
   </ul>
-  <a href="donate.html" class="nav-cta">Donate now</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->

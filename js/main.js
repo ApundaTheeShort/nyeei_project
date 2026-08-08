@@ -122,8 +122,129 @@ function copyText(text, btn) {
   });
 }
 
+// ── NAVIGATION & MOBILE MENU ──
+function initNav() {
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+
+  if (!toggle || !navLinks) return;
+
+  // Set initial ARIA accessibility attributes
+  if (!navLinks.id) navLinks.id = 'nav-menu';
+  if (!navLinks.getAttribute('role')) navLinks.setAttribute('role', 'navigation');
+  if (!navLinks.getAttribute('aria-label')) navLinks.setAttribute('aria-label', 'Main Navigation');
+  toggle.setAttribute('aria-controls', navLinks.id);
+
+  function syncAriaState() {
+    const isMobile = window.innerWidth <= 768;
+    const isOpen = navLinks.classList.contains('active');
+    if (isMobile) {
+      navLinks.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    } else {
+      navLinks.removeAttribute('aria-hidden');
+    }
+  }
+
+  function openMenu() {
+    toggle.classList.add('active');
+    navLinks.classList.add('active');
+    body.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    navLinks.setAttribute('aria-hidden', 'false');
+
+    // Move focus into the menu (first link)
+    const firstLink = navLinks.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeMenu() {
+    toggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    syncAriaState();
+  }
+
+  function toggleMenu() {
+    if (navLinks.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close menu when clicking a link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu when clicking outside or directly on overlay backdrop
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active')) {
+      // If click target is the navLinks overlay itself (backdrop) or outside toggle & links
+      if (e.target === navLinks || (!navLinks.contains(e.target) && !toggle.contains(e.target))) {
+        closeMenu();
+      }
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+      closeMenu();
+    }
+    syncAriaState();
+  });
+
+  // Support Keyboard Navigation: ESC to close & Focus Trapping inside open drawer
+  document.addEventListener('keydown', (e) => {
+    if (!navLinks.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+      closeMenu();
+      toggle.focus();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusables = [toggle, ...Array.from(navLinks.querySelectorAll('a, button'))];
+      if (focusables.length <= 1) return;
+      
+      const firstLink = focusables[1];
+      const lastLink = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === toggle) {
+          e.preventDefault();
+          lastLink.focus();
+        } else if (document.activeElement === firstLink) {
+          e.preventDefault();
+          toggle.focus();
+        }
+      } else {
+        if (document.activeElement === lastLink) {
+          e.preventDefault();
+          toggle.focus();
+        } else if (document.activeElement === toggle) {
+          e.preventDefault();
+          firstLink.focus();
+        }
+      }
+    }
+  });
+
+  syncAriaState();
+}
+
 // ── FORM INITIALIZATION (Formspree AJAX Integration) ──
 document.addEventListener('DOMContentLoaded', function() {
+  initNav();
   // Init Registration Form
   var regForm = document.getElementById('reg-form');
   if (typeof formspree === 'function' && regForm) {
