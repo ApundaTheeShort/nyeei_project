@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate &amp; Support Us – NYEEI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="window.location.href='index.html'" style="cursor:pointer;">NYE<span>EI</span></div>
+  <ul class="nav-links">
+    <li><a href="about.html">About &amp; Team</a></li>
+    <li><a href="programs.html">Programs &amp; Events</a></li>
+    <li><a href="register.html">Register</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="donate.html" class="nav-cta">Donate now</a>
+</nav>
+
+<!-- DONATE -->
+<section class="section donate" id="donate">
+  <div class="section-inner">
+    <div class="section-label">Make a difference</div>
+    <h2>Fund a young person's future</h2>
+    <p class="section-sub">Your donation goes directly to the NYEEI account and funds training, grants, and mentorship for youth who need it most.</p>
+
+    <!-- STEP 1: Choose amount -->
+    <div class="donate-box" id="donate-step-1">
+      <p style="font-size:0.82rem;color:var(--green);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;">Step 1 of 2 — Choose your amount</p>
+      <p class="donate-label">Select an amount (KES)</p>
+      <div class="donate-amounts">
+        <button class="amount-btn" onclick="setAmount(500, this)">500</button>
+        <button class="amount-btn active" onclick="setAmount(1000, this)">1,000</button>
+        <button class="amount-btn" onclick="setAmount(2500, this)">2,500</button>
+        <button class="amount-btn" onclick="setAmount(5000, this)">5,000</button>
+        <button class="amount-btn" onclick="setAmount(10000, this)">10,000</button>
+      </div>
+      <p class="donate-label">Or enter a custom amount</p>
+      <input type="number" id="amount-input" class="donate-input" value="1000" placeholder="Enter amount in KES" oninput="syncAmount(this.value)" />
+      <p class="donate-label">Your full name</p>
+      <input type="text" id="donor-name" class="donate-input" placeholder="Full name (used as payment reference)" />
+      <p class="donate-label">Your email (optional — for receipt)</p>
+      <input type="email" id="donor-email" class="donate-input" placeholder="you@example.com" />
+      <button class="donate-btn" onclick="handleDonate()">See bank transfer details — KES <span id="donate-amount">1,000</span></button>
+      <p class="donate-note">🔒 No card details collected here. You transfer directly to the NYEEI bank account.</p>
+    </div>
+
+    <!-- STEP 2: Bank details -->
+    <div class="donate-box" id="donate-step-2" style="display:none;">
+      <p style="font-size:0.82rem;color:var(--green);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;">Step 2 of 2 — Complete your bank transfer</p>
+      <div style="text-align:center;margin-bottom:1.5rem;">
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--green-light);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a7a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:0.2rem;">Transfer to NYEEI</h3>
+        <p style="font-size:0.88rem;color:var(--muted);">Use the exact details below at your bank or via mobile banking.</p>
+      </div>
+
+      <div style="background:var(--green-light);border:1.5px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;">
+        <div class="bank-row">
+          <span class="bank-label">Bank</span>
+          <span class="bank-value">I&amp;M Bank Kenya</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Account name</span>
+          <span class="bank-value">John Ochieng Ohuru</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Account number</span>
+          <span class="bank-value" style="font-family:monospace;letter-spacing:0.08em;">
+            04007912526150
+            <button class="copy-btn" onclick="copyText('04007912526150', this)">Copy</button>
+          </span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Amount (KES)</span>
+          <span class="bank-value" style="color:var(--green);font-size:1.1rem;" id="confirm-amount">1,000</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Payment reference</span>
+          <span class="bank-value" id="confirm-ref" style="color:var(--green-dark);">—</span>
+        </div>
+      </div>
+
+      <div style="background:var(--gold-light);border:1px solid rgba(212,160,23,0.4);border-radius:8px;padding:0.9rem 1rem;font-size:0.88rem;color:#5a3e00;margin-bottom:1.25rem;line-height:1.6;">
+        ⚠️ Use <strong>your name</strong> as the payment reference so we can match your donation. After transferring, please confirm by emailing <a href="mailto:nyeeiorganization@gmail.com" style="color:var(--green);">nyeeiorganization@gmail.com</a> or calling/WhatsApp <a href="https://wa.me/254793633079" style="color:var(--green);">0793 633 079</a>.
+      </div>
+
+      <a href="https://wa.me/254793633079?text=Hello%20NYEEI%2C%20I%20have%20just%20made%20a%20donation%20of%20KES%20" id="whatsapp-link" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:0.6rem;text-align:center;background:#25d366;color:white;border-radius:8px;padding:0.9rem;font-weight:700;font-size:1rem;text-decoration:none;margin-bottom:0.75rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.849L.078 23.617a.75.75 0 00.918.899l5.919-1.55A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.715 9.715 0 01-4.944-1.348l-.354-.21-3.668.961.975-3.565-.23-.367A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        Confirm via WhatsApp — 0793 633 079
+      </a>
+
+      <button class="donate-btn" style="background:transparent;color:var(--green);border:1.5px solid var(--green);margin-top:0.25rem;" onclick="resetDonate()">← Make another donation</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">NYE<span>EI</span></div>
+  <p>Nairobi Youth Economic Engagement Initiative</p>
+  <p style="margin-top:0.4rem;">Founded by Economist John Ochieng Ohuru &nbsp;·&nbsp; <a href="mailto:nyeeiorganization@gmail.com">nyeeiorganization@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+254793633079">0793 633 079</a> &nbsp;·&nbsp; Nairobi, Kenya</p>
+  <p style="margin-top:1rem;font-size:0.78rem;">© 2026 NYEEI. Building brighter futures, one youth at a time.</p>
+</footer>
+
+</body>
+</html>
