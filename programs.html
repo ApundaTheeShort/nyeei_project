@@ -11,6 +11,8 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/main.js" defer></script>
+  <script src="js/events-data.js" defer></script>
+  <script src="js/events.js" defer></script>
 </head>
 
 <body>
@@ -156,69 +158,8 @@
           2026 across Nairobi constituencies.</p>
       </div>
 
-      <div class="timeline-calendar">
-        <!-- August -->
-        <div class="month-box">
-          <h4>📅 August 2026</h4>
-          <div class="event-entry">
-            <div class="event-title">Innovate Nairobi Bootcamp — Cohort Launch</div>
-            <div class="event-status">📍 iHub Nairobi · Date Confirmed</div>
-          </div>
-          <div class="event-entry">
-            <div class="event-title">Hustle Hub Mentorship Kick-off</div>
-            <div class="event-status">📍 Westlands Hub · Registration Open</div>
-          </div>
-        </div>
-
-        <!-- September -->
-        <!-- <div class="month-box">
-          <h4>📅 September 2026</h4>
-          <div class="event-entry">
-            <div class="event-title">Mama Inua Women Entrepreneurs Forum</div>
-            <div class="event-status">📍 Mathare Community Center</div>
-          </div>
-          <div class="event-entry">
-            <div class="event-title">Micro-Enterprise Grant Round 2 Opens</div>
-            <div class="event-status">📍 Online Applications</div>
-          </div>
-        </div>
-
-        <!-- October -->
-        <div class="month-box">
-          <h4>📅 October 2026</h4>
-          <div class="event-entry">
-            <div class="event-title">Bootcamp Mid-Point Review &amp; Mentors Night</div>
-            <div class="event-status">📍 Nairobi Innovation Center</div>
-          </div>
-          <div class="event-entry">
-            <div class="event-title">Constituency Stakeholders Roundtable</div>
-            <div class="event-status">📍 Embakasi East Hall</div>
-          </div>
-        </div>
-
-        <!-- November -->
-        <div class="month-box">
-          <h4>📅 November 2026</h4>
-          <div class="event-entry">
-            <div class="event-title">Youth Innovation Pitch Competition</div>
-            <div class="event-status">📍 TUK Auditorium</div>
-          </div>
-          <div class="event-entry">
-            <div class="event-title">Micro-Enterprise Grant Award Ceremony</div>
-            <div class="event-status">📍 Nairobi City Hall</div>
-          </div>
-        </div>
-
-        <!-- December -->
-        <div class="month-box">
-          <h4>📅 December 2026</h4>
-          <div class="event-entry">
-            <div class="event-title">NYEEI Annual Empowerment Gala &amp; Graduation</div>
-            <div class="event-status">📍 Nairobi Main Hub · Grand Demo Day</div>
-          </div>
-        </div>
-
-      </div>
+      <div id="events-filter-bar" class="events-filter-bar"></div>
+      <div id="events-container" class="events-container"></div>
 
       <div style="text-align:center; margin-top: 3rem;">
         <p style="color:rgba(255,255,255,0.7); font-size:0.95rem;">
@@ -229,6 +170,78 @@
       </div>
     </div>
   </section>
+
+  <!-- ACCESSIBLE EVENT DETAILS MODAL -->
+  <div id="event-modal" class="event-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop"></div>
+    <div class="event-modal-container">
+      <button type="button" class="modal-close-btn" aria-label="Close event details">×</button>
+      <div class="modal-media-header">
+        <img src="" alt="" class="modal-event-img" />
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-meta">
+          <span class="modal-category event-badge badge-category">Category</span>
+          <span class="modal-status event-badge badge-gold">Status</span>
+        </div>
+        <h3 id="modal-title" class="modal-title">Event Title</h3>
+        
+        <div class="modal-info-pills-grid">
+          <div class="modal-info-item">
+            <span class="info-icon">🗓️</span>
+            <div>
+              <div class="info-label">Date</div>
+              <div class="modal-date info-val">--</div>
+            </div>
+          </div>
+          <div class="modal-info-item">
+            <span class="info-icon">⏰</span>
+            <div>
+              <div class="info-label">Time</div>
+              <div class="modal-time info-val">--</div>
+            </div>
+          </div>
+          <div class="modal-info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <div class="info-label">Location</div>
+              <div class="modal-location info-val">--</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="modal-section-title"><span>📝</span> About This Event</h4>
+          <p class="modal-desc"></p>
+        </div>
+
+        <div class="modal-section modal-highlights-box" style="display:none;">
+          <h4 class="modal-section-title" style="color:#7EF2B5;"><span>✨</span> Key Event Highlights</h4>
+          <ul class="modal-highlights-list"></ul>
+        </div>
+
+        <div class="modal-section modal-requirements-box" style="display:none;">
+          <h4 class="modal-section-title"><span>📋</span> Participant Requirements</h4>
+          <ul class="modal-requirements-list"></ul>
+        </div>
+
+        <div class="modal-section modal-agenda-box" style="display:none;">
+          <h4 class="modal-section-title"><span>🕒</span> Schedule &amp; Agenda</h4>
+          <div class="modal-agenda-list"></div>
+        </div>
+
+        <div class="modal-section modal-meta-box">
+          <div class="modal-organizer" style="margin-bottom:0.5rem;"></div>
+          <div class="modal-contact"></div>
+        </div>
+
+        <div class="modal-actions">
+          <a href="register.html" class="btn-primary modal-btn-register">Apply / Register Now →</a>
+          <a href="contact.html" class="btn-ghost">Contact Organizer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>

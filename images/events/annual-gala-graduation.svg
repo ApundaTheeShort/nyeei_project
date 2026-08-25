@@ -1,0 +1,22 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' width='100%' height='100%'>
+      <defs>
+        <linearGradient id='bg9' x1='0%' y1='0%' x2='100%' y2='100%'>
+          <stop offset='0%' stop-color='#072618'/>
+          <stop offset='50%' stop-color='#101813'/>
+          <stop offset='100%' stop-color='#1B261F'/>
+        </linearGradient>
+        <linearGradient id='gold9' x1='0%' y1='0%' x2='100%' y2='100%'>
+          <stop offset='0%' stop-color='#FFE5AD'/>
+          <stop offset='50%' stop-color='#E5A83B'/>
+          <stop offset='100%' stop-color='#D9822B'/>
+        </linearGradient>
+      </defs>
+      <rect width='100%' height='100%' fill='url(#bg9)'/>
+      <circle cx='400' cy='180' r='180' fill='url(#gold9)' opacity='0.08'/>
+      <g transform='translate(400, 165)' text-anchor='middle'>
+        <polygon points='0,-35 45,-10 0,15 -45,-10' fill='url(#gold9)'/>
+        <rect x='-20' y='5' width='40' height='25' fill='url(#gold9)'/>
+      </g>
+      <text x='400' y='305' font-family='Outfit, sans-serif' font-weight='800' font-size='28' fill='#FFFFFF' text-anchor='middle'>NYEEI Annual Empowerment Gala &amp; Graduation</text>
+      <text x='400' y='340' font-family='Plus Jakarta Sans, sans-serif' font-weight='600' font-size='16' fill='#E5A83B' text-anchor='middle'>Nairobi Main Hub · Grand Demo Day 2026</text>
+    </svg>

@@ -147,6 +147,10 @@ function initNav() {
 
   function openMenu() {
     toggle.classList.add('active');
+    // First make visible in layout so the transform transition can run
+    navLinks.style.display = 'flex';
+    // Force a reflow so the browser registers the initial translateX(100%) state
+    navLinks.getBoundingClientRect();
     navLinks.classList.add('active');
     body.classList.add('nav-open');
     toggle.setAttribute('aria-expanded', 'true');
@@ -162,6 +166,14 @@ function initNav() {
     body.classList.remove('nav-open');
     toggle.setAttribute('aria-expanded', 'false');
     syncAriaState();
+    // After the slide-out transition completes, remove from layout entirely
+    function onTransitionEnd() {
+      if (!navLinks.classList.contains('active')) {
+        navLinks.style.display = 'none';
+      }
+      navLinks.removeEventListener('transitionend', onTransitionEnd);
+    }
+    navLinks.addEventListener('transitionend', onTransitionEnd);
   }
 
   function toggleMenu() {

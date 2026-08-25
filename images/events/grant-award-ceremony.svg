@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' width='100%' height='100%'>
+      <defs>
+        <linearGradient id='bg8' x1='0%' y1='0%' x2='100%' y2='100%'>
+          <stop offset='0%' stop-color='#155E39'/>
+          <stop offset='100%' stop-color='#0A3622'/>
+        </linearGradient>
+      </defs>
+      <rect width='100%' height='100%' fill='url(#bg8)'/>
+      <circle cx='200' cy='100' r='140' fill='#E5A83B' opacity='0.15'/>
+      <g transform='translate(400, 175)' text-anchor='middle'>
+        <circle cx='0' cy='0' r='55' fill='#E5A83B'/>
+        <path d='M-15,-10 L0,-25 L15,-10 L8,-10 L8,20 L-8,20 L-8,-10 Z' fill='#0A3622'/>
+      </g>
+      <text x='400' y='310' font-family='Outfit, sans-serif' font-weight='800' font-size='28' fill='#FFFFFF' text-anchor='middle'>Micro-Enterprise Grant Award Ceremony</text>
+      <text x='400' y='345' font-family='Plus Jakarta Sans, sans-serif' font-weight='600' font-size='16' fill='#E5A83B' text-anchor='middle'>Nairobi City Hall · Grant Disbursement</text>
+    </svg>

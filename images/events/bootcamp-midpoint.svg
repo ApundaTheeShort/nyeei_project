@@ -1,0 +1,24 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450' width='100%' height='100%'>
+      <defs>
+        <linearGradient id='bg5' x1='0%' y1='0%' x2='100%' y2='100%'>
+          <stop offset='0%' stop-color='#072618'/>
+          <stop offset='50%' stop-color='#0A3622'/>
+          <stop offset='100%' stop-color='#155E39'/>
+        </linearGradient>
+        <linearGradient id='gold5' x1='0%' y1='0%' x2='100%' y2='100%'>
+          <stop offset='0%' stop-color='#E5A83B'/>
+          <stop offset='100%' stop-color='#D9822B'/>
+        </linearGradient>
+      </defs>
+      <rect width='100%' height='100%' fill='url(#bg5)'/>
+      <circle cx='700' cy='80' r='180' fill='#D9822B' opacity='0.12'/>
+      <circle cx='100' cy='380' r='220' fill='#155E39' opacity='0.25'/>
+      <g transform='translate(400, 180)' text-anchor='middle'>
+        <rect x='-70' y='-70' width='140' height='140' rx='28' fill='url(#gold5)' opacity='0.15'/>
+        <rect x='-55' y='-55' width='110' height='110' rx='22' fill='url(#gold5)'/>
+        <path d='M-20,-10 L-20,25 L25,5 Z' fill='#0A3622'/>
+        <path d='M-15,-25 L15,-25 L20,-10 L-20,-10 Z' fill='#0A3622'/>
+      </g>
+      <text x='400' y='320' font-family='Outfit, sans-serif' font-weight='800' font-size='28' fill='#FFFFFF' text-anchor='middle'>Bootcamp Mid-Point Review</text>
+      <text x='400' y='355' font-family='Plus Jakarta Sans, sans-serif' font-weight='600' font-size='16' fill='#E5A83B' text-anchor='middle'>Nairobi Innovation Center · Mentors Night</text>
+    </svg>
